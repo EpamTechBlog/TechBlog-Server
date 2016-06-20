@@ -7,6 +7,6 @@
  - use `passport` for authentication
  - use `grunt` for task running and modification detection
 
- ####Start
+####Start
 
-  - `npm start` which will run express server and grunt watch
+ - `npm start` which will run express server and grunt watch
