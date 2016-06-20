@@ -39,6 +39,6 @@ app.use(function(req, res, next) {
 app.use('/users', users);
 
 app.listen(8000, function(err){
-  if(err) console.log(err);
+  if(err) console.log(err)
   else console.log("server starts at 8000");
 });

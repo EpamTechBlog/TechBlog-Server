@@ -15,8 +15,12 @@
     "express": "^4.13.4",
     "express-flash": "0.0.2",
     "express-session": "^1.13.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-express-server": "^0.5.3",
     "mongoose": "^4.5.0",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
   }
 }
