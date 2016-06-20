@@ -10,6 +10,8 @@ module.exports = function(grunt) {
         tasks: ['express:dev'],
         options: {
           interrupt: true,
+          serverreload: true,
+          atBegin: true,
           //livereload: 8000,
         },
       },
