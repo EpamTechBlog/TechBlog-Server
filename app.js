@@ -1,15 +1,11 @@
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose = require("mongoose");
-var passport = require("passport");
+var mongoose = require("./config/mongoose.config");
+var passport = require("./config/passport.config");
 var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var flash = require('express-flash');
-
-
-//CONNECT TO MONGODB set the schema
-mongoose.connect('mongodb://localhost/TechBlog');
 
 var app = express();
 
@@ -23,7 +19,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-var users = require('./routes/users');
+var users = require('./routes/user.route');
 
 // Additional middleware which will set headers that we need on each request.
 app.use(function(req, res, next) {

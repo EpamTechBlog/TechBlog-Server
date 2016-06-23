@@ -1,13 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require("mongoose");
 var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
-
+var mongoose = require('./mongoose.config');
 // register the user schema
-require('../models/user');
+require('../models/user.model');
 var User = mongoose.model("User");
-//passport
+
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({ username: username }, function (err, user) {
@@ -33,19 +30,4 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-
-router.post('/register', function(req, res, next) {
-  var user = new User(req.body);
-  user.save(function(err){
-    if(err) res.jsonp(err);
-    else res.jsonp(user);
-  });
-});
-
-router.post('/login',
-            passport.authenticate('local'), function(req, res) {
-              res.jsonp(req.user);
-            }
-);
-
-module.exports = router;
+module.exports = passport;
