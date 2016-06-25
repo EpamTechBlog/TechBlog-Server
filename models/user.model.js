@@ -18,6 +18,31 @@ var UserSchema = new Schema({
   },
   salt: {
     type: String
+  },
+  jobTitle:{
+    type: String,
+    optional:true
+  },
+  homeAddress:{
+    type: String,
+    optional:true
+  },
+  skills:{
+    type: Array,
+    optional:true
+  },
+  "skills.$" : {
+    type : String
+  },
+  articles:{
+    type: Array,
+    optional:true
+  },
+  "articles.$" : {
+    type : String
+  },
+  profileImage:{
+    type : String 
   }
 
 });
