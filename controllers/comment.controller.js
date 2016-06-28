@@ -38,7 +38,9 @@ exports.addReply = function(req, res){
 }
 
 exports.read = function(req, res){
-
+	var articleId = req.body.articleId;
+	var comment = Comment.findOne({articleId:articleId});
+	res.jsonp(comment);
 }
 
 
