@@ -13,4 +13,6 @@ router.post('/register', userController.register);
 
 router.post('/login', passport.authenticate('local'), userController.login);
 
+router.get('/:id', userController.getInfo);
+
 module.exports = router;

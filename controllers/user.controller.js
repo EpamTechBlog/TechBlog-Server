@@ -20,3 +20,11 @@ exports.login =  function(req, res) {
   res.jsonp(req.user);
 };
 
+exports.getInfo = function(req, res){
+  var id = req.params.id;
+  User.findOne({_id : id}, function(err, data){
+    if(err) console.log(err);
+    else res.jsonp(data);
+  });
+}
+
