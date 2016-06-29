@@ -20,6 +20,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 var users = require('./routes/user.route');
+var articles = require('./routes/article.route');
 
 // Additional middleware which will set headers that we need on each request.
 app.use(function(req, res, next) {
@@ -33,6 +34,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/users', users);
+app.use('/articles',articles);
 
 app.listen(8000, function(err){
   if(err) console.log(err)
