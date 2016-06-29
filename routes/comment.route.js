@@ -8,8 +8,8 @@ require('../models/comment.model');
  var Comment = mongoose.model("Comment");
 
 
-router.post('/comments', commentController.add);
-router.post('/comments/reply', commentController.addReply);
-router.get('/comments/:articleId', commentController.read);
+router.post('/', commentController.add);
+router.post('/reply', commentController.addReply);
+router.get('/:articleId', commentController.read);
 
 module.exports = router;
