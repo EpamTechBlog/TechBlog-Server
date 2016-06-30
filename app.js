@@ -12,8 +12,8 @@ var app = express();
 //Initialize passport
 app.use(express.static('public'));
 app.use(cookieParser());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json('2mb'));
+app.use(bodyParser.urlencoded({extended: true, limit: '2mb'}));
 app.use(session({ secret: 'keyboard cat' , resave: false, saveUninitialized: false}));
 app.use(flash());
 app.use(passport.initialize());
@@ -27,7 +27,7 @@ app.use(function(req, res, next) {
     // an API server in conjunction with something like webpack-dev-server.
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-    // Disable caching so we'll always get the latest comments.
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
     res.setHeader('Cache-Control', 'no-cache');
     next();
 });
