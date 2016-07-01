@@ -15,7 +15,6 @@ exports.getAll = (req,res,next) =>{
       res.send({articles: doc});
     }
   })
-
 }
 
 //search specific article with id
