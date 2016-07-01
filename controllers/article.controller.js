@@ -58,3 +58,12 @@ exports.getByTopic = (req,res,next)=>{
     }
   });
 }
+
+exports.postArticle = (req, res) => {
+  console.log(req.body, 'post api');
+  const article = new ArticleModel(req.body);
+
+  res.send({
+    article
+  });
+}
