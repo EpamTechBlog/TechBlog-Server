@@ -6,7 +6,7 @@ var userController = require('../controllers/user.controller');
 // register the user schema
 require('../models/user.model');
 
- var User = mongoose.model("User");
+var User = mongoose.model("User");
 
 
 router.post('/register', userController.register);
