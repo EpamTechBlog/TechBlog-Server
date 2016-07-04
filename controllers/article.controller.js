@@ -59,10 +59,12 @@ exports.getByTopic = (req,res,next)=>{
 }
 
 exports.postArticle = (req, res) => {
-  console.log(req.body, 'post api');
+
   const article = new ArticleModel(req.body);
 
-  res.send({
-    article
+  article.save(function(err, data){
+      if(err) console.log(err);
+      else res.jsonp(data);
   });
+  console.log("new post is added");
 }

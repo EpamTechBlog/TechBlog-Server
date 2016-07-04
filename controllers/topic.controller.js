@@ -5,7 +5,6 @@ const mongoose = require('../config/mongoose.config');
 const Topic = mongoose.model('Topic');
 const ObjectId = require('mongoose').Types.ObjectId;
 
-
 //search all topics
 exports.getAllTopics = (req,res,next) =>{
   Topic.find({},(err,data)=>{

@@ -15,8 +15,8 @@ var ArticleSchema = new Schema({
   },
   author: {
     type: String,
-    default: '',
-    ref: 'user'
+    default: ''
+
   },
   topic: {
     type: String,
@@ -39,8 +39,7 @@ var ArticleSchema = new Schema({
   },
   comments: {
     type: Array,
-    default: [],
-    ref: 'comment'
+    default: []
   }
 });
 
