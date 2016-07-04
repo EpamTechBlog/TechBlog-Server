@@ -6,6 +6,8 @@ require('../models/comment.model');
 var Comment = mongoose.model("Comment");
 
 exports.add = function(req, res){
+	console.log(req.body);
+	res.end("post comment success!");
 	console.log("begin to add a 1-level comments");
 	var articleId = req.body.articleId;
 	var creator = req.body.creator;
@@ -13,7 +15,7 @@ exports.add = function(req, res){
 	console.log(req.body.articleId);
 	Comment.findOne({articleId:articleId}, function(err, comment){
 		console.log(comment);
-		if(comment == undefined){
+		if(comment === null){
 			comment = new Comment();
 			comment.articleId = articleId;
 			comment.comments = [{
@@ -31,11 +33,16 @@ exports.add = function(req, res){
 			});
 		}
 		comment.save(function(err){
-	    if(err)
-	    	res.jsonp(err);
-	    else
-	    	res.jsonp(comment);
-	  });
+			if(err){
+				console.log("error");
+				res.end(err);
+			}
+			else{
+				console.log("saved");
+				res.end("comment saved!");
+			}
+
+		});
 	});
 
 }
@@ -51,7 +58,7 @@ exports.addReply = function(req, res){
 		console.log(comment);
 		if(comment != undefined){
 			var comments = comment.comments;
-			for(let i = 0; i < comments.length; i++){
+			for(var i = 0; i < comments.length; i++){
 				if(comments[i].creator === creator){
 					comment.comments[i].comments2comments.push({
 						replyer: replyer,
@@ -63,14 +70,14 @@ exports.addReply = function(req, res){
 			}
 			comment.save(function(err){
 				if(err)
-	    		res.jsonp(err);
-	    	else
-	    		res.jsonp(comment);
+					res.jsonp(err);
+				else
+					res.jsonp(comment);
 			});
 		}else{
 			res.jsonp({message:"not existing 1-level comment, so cannot reply"});
 		}
-		});
+	});
 
 }
 
