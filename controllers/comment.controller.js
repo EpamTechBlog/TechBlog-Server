@@ -85,10 +85,14 @@ exports.read = function(req, res){
 	console.log(req.params.articleId);
 	var articleId = req.params.articleId;
 	var comment = Comment.findOne({articleId:articleId}, function(err, comment){
-		if(err)
-			res.jsonp(err);
-		else
+
+		if(comment==null){
+			res.jsonp(null);
+		}else{
 			res.jsonp(comment.comments);
+
+		}
+
 	});
 }
 
