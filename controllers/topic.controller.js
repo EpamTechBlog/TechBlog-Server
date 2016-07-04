@@ -15,7 +15,6 @@ exports.getAllTopics = (req,res,next) =>{
       res.jsonp(data);
     }
   })
-
 }
 
 
@@ -80,5 +79,5 @@ Topic.find({}, function(err, data){
 	  }
 	}
 });
-  
+
 
