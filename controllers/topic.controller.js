@@ -59,7 +59,7 @@ var topics = [
         topicName : 'JAVA',
         description : 'Pellentesque egestas magna fringillagna varius',
         link : "",
-        effect:'effect-romeo',
+        effect:'effect-sarah',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/12.jpg",
       }
     ];
