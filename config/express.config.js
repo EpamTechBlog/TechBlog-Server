@@ -28,6 +28,12 @@ app.use(function(req, res, next) {
 
 
 var users = require('../routes/user.route');
+var articles = require('../routes/article.route');
+var topics = require('../routes/topic.route');
+
 app.use('/users', users);
+app.use('/articles', articles);
+app.use('/topics', topics);
+
 
 module.exports = app;
