@@ -18,17 +18,17 @@ exports.getAll = (req,res,next) =>{
 }
 
 //search specific article with id
-// exports.getById = (req,res,next)=>{
-//   const id = req.params.id;
-//   //search article with id
-//   ArticleModel.findById(new ObjectId(id),(err,doc)=>{
-//     if(err){
-//       res.send('err',err);
-//     }else{
-//       res.send({articles: doc});
-//     }
-//   });
-// }
+exports.getArticleById = (req,res,next)=>{
+  const id = req.params.id;
+  //search article with id
+  ArticleModel.findById(new ObjectId(id),(err,doc)=>{
+    if(err){
+      res.send('err',err);
+    }else{
+      res.send({articles: doc});
+    }
+  });
+}
 
 //search specific articles with author id
 exports.getByAuthorId = (req,res,next)=>{
