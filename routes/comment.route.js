@@ -11,6 +11,7 @@ require('../models/comment.model');
 router.post('/', commentController.add);
 router.post('/reply', commentController.addReply);
 router.get('/:articleId', commentController.read);
-router.get('/getArticleIds/:userId', commentController.readByUserId);
+router.get('/articleIds/:userId', commentController.readByUserId);
+router.get('/articles/:userId', commentController.readArticlesByUserId);
 
 module.exports = router;

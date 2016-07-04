@@ -4,6 +4,7 @@ var mongoose = require('../config/mongoose.config');
 // register the comment schema
 require('../models/comment.model');
 var Comment = mongoose.model("Comment");
+var Article = mongoose.model("Article");
 
 exports.add = function(req, res){
 	console.log(req.body);
@@ -128,6 +129,47 @@ exports.readByUserId = function (req, res, next){
 	});
 }
 
+exports.readArticlesByUserId = function (req, res, next){
+	var userId = req.params.userId;
+	var articleCommentedByUser = [];
+	var articles = [];
+	Comment.find({}, function(err, comments){
+		if(err){
+			res.jsonp(err);
+		}else{
+			for(let i = 0; i < comments.length; i++){
+				for(let m = 0; m < comments[i].comments.length; m++){
+					if(comments[i].comments[m].creator === userId){
+						articleCommentedByUser.push(comments[i].articleId);
+						break;
+					}
+					let comments2comments = comments[i].comments[m].comments2comments;
+					for(let j = 0; j < comments2comments.length; j++){
+						if(comments2comments[j].replyer === userId){
+							articleCommentedByUser.push(comments[i].articleId);
+							break;
+						}
+					}
+				}
+			}
+
+			for(let n = 0; n < articleCommentedByUser.length; n++){
+				Article.find({id: articleCommentedByUser[n].articleId},function(err, article){
+					articles.push({
+						id: article.id,
+						title: article.title,
+						author: article.author,
+						topic: article.topic,
+						publishDate: article.publishDate
+					});
+					if(articles.length === articleCommentedByUser.length){
+						res.jsonp(articles);
+					}
+				});
+			}
+		}
+	});
+}
 
 /*
 var CommentSchema = new Schema({
