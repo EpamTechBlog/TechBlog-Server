@@ -85,6 +85,42 @@ exports.read = function(req, res){
 	});
 }
 
+exports.readByUserId = function (req, res, next){
+	var userId = req.params.userId;
+	// console.log(userId);
+	var articleCommentedByUser = [];
+	Comment.find({}, function(err, comments){
+		// console.log(comments);
+		if(err){
+			res.jsonp(err);
+		}else{
+			for(let i = 0; i < comments.length; i++){
+				for(let m = 0; m < comments[i].comments.length; m++){
+					if(comments[i].comments[m].creator === userId){
+						/*articleCommentedByUser.push({
+						 	articleId: comments[i].articleId
+						});*/
+						articleCommentedByUser.push(comments[i].articleId);
+						break;
+					}
+					let comments2comments = comments[i].comments[m].comments2comments;
+					// console.log(comments2comments);
+					for(let j = 0; j < comments2comments.length; j++){
+						if(comments2comments[j].replyer === userId){
+							/*articleCommentedByUser.push({
+							 	articleId: comments[i].articleId
+							});*/
+							articleCommentedByUser.push(comments[i].articleId);
+							break;
+						}
+					}
+				}
+			}
+			res.jsonp(articleCommentedByUser);
+		}
+	});
+}
+
 
 /*
 var CommentSchema = new Schema({
