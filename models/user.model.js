@@ -42,7 +42,16 @@ var UserSchema = new Schema({
     type : String
   },
   profileImage:{
-    type : String 
+    type : String,
+    optional:true
+  },
+  phone : {
+    type : String,
+    optional:true
+  },
+  email : {
+    type : String,
+    optional:true
   }
 
 });
