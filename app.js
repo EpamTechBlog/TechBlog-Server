@@ -22,7 +22,7 @@ app.use(passport.session());
 var users = require('./routes/user.route');
 var articles = require('./routes/article.route');
 var topics = require('./routes/topic.route');
-
+var comments = require('./routes/comment.route');
 
 // Additional middleware which will set headers that we need on each request.
 app.use(function(req, res, next) {
@@ -38,6 +38,7 @@ app.use(function(req, res, next) {
 app.use('/users', users);
 app.use('/articles',articles);
 app.use('/topics',topics);
+app.use('/comments', comments);
 
 app.listen(8000, function(err){
   if(err) console.log(err)
