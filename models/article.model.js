@@ -37,9 +37,10 @@ var ArticleSchema = new Schema({
     type: Array,
     default: [],
   },
-  comments: {
-    type: Array,
-    default: []
+  commentId: {
+    type: String,
+    default: '',
+    trim: true,
   }
 });
 

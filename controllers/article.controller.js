@@ -51,12 +51,33 @@ exports.getByTopic = (req,res,next)=>{
   //search article with id
   ArticleModel.find({topic: name},(err,doc)=>{
     if(err){
-      res.send('err',err);
+      res.send('get article by id error',err);
     }else{
       res.send({articles: doc});
     }
   });
 }
+
+//search specific articles with author id
+exports.changeComment = (req,res,next)=>{
+  const articleId = req.params.articleId;
+  const commentId = req.params.commentId;
+  console.log('articleId',articleId);
+  console.log('commentId',commentId);
+
+  ArticleModel.findOneAndUpdate(
+    {id: new ObjectId(articleId)},
+    {$set:{commentId: commentId}},
+    (doc,err)=>{
+      if(err){
+        res.send('Modify Comment error', err);
+      } else{
+        res.send('Success')
+      }
+    });
+}
+
+
 
 exports.postArticle = (req, res) => {
 
