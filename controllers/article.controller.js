@@ -64,7 +64,10 @@ exports.postArticle = (req, res) => {
 
   article.save(function(err, data){
       if(err) console.log(err);
-      else res.jsonp(data);
+      else {
+        res.jsonp(data);
+        console.log("new post is added", data);
+
+      }
   });
-  console.log("new post is added");
 }
