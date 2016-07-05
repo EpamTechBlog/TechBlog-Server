@@ -86,10 +86,14 @@ exports.read = function(req, res){
 	console.log(req.params.articleId);
 	var articleId = req.params.articleId;
 	var comment = Comment.findOne({articleId:articleId}, function(err, comment){
-		if(err)
-			res.jsonp(err);
-		else
+
+		if(comment==null){
+			res.jsonp(null);
+		}else{
 			res.jsonp(comment.comments);
+
+		}
+
 	});
 }
 
@@ -102,31 +106,31 @@ exports.readByUserId = function (req, res, next){
 		if(err){
 			res.jsonp(err);
 		}else{
-			for(let i = 0; i < comments.length; i++){
-				for(let m = 0; m < comments[i].comments.length; m++){
+			for(var i = 0; i < comments.length; i++){
+				for(var m = 0; m < comments[i].comments.length; m++){
 					if(comments[i].comments[m].creator === userId){
 						/*articleCommentedByUser.push({
 						 	articleId: comments[i].articleId
-						});*/
-						articleCommentedByUser.push(comments[i].articleId);
-						break;
-					}
-					let comments2comments = comments[i].comments[m].comments2comments;
+						 });*/
+						 articleCommentedByUser.push(comments[i].articleId);
+						 break;
+						}
+						var comments2comments = comments[i].comments[m].comments2comments;
 					// console.log(comments2comments);
-					for(let j = 0; j < comments2comments.length; j++){
+					for(var j = 0; j < comments2comments.length; j++){
 						if(comments2comments[j].replyer === userId){
 							/*articleCommentedByUser.push({
 							 	articleId: comments[i].articleId
-							});*/
-							articleCommentedByUser.push(comments[i].articleId);
-							break;
+							 });*/
+							 articleCommentedByUser.push(comments[i].articleId);
+							 break;
+							}
 						}
 					}
 				}
+				res.jsonp(articleCommentedByUser);
 			}
-			res.jsonp(articleCommentedByUser);
-		}
-	});
+		});
 }
 
 exports.readArticlesByUserId = function (req, res, next){
