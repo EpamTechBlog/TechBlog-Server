@@ -30,7 +30,7 @@ exports.getInfo = function(req, res){
 
 exports.updateInfo = function(req, res){
   var id = req.params.id;
-  User.findOneAndUpdate(id, { $set : req.body }, function(err, response){
+  User.findOneAndUpdate({_id : id}, { $set : req.body }, function(err, response){
       if(err) console.log(err);
       else res.jsonp(response);
   });
