@@ -3,24 +3,10 @@ require('../models/topic.model.js');
 
 const mongoose = require('../config/mongoose.config');
 const Topic = mongoose.model('Topic');
-const ObjectId = require('mongoose').Types.ObjectId;
-
-//search all topics
-exports.getAllTopics = (req,res,next) =>{
-  console.log('enter getAllTopics');
-  Topic.find({}, (err,data)=>{
-    if(err){
-      res.jsonp(err);
-    }else{
-      res.jsonp(data);
-    }
-  })
-
-}
 
 var topics = [
       {
-        topicName : 'JS',
+        topicName : 'JAVASCRIPT',
         description : 'When Layla appears',
         link : "",
         effect:'effect-roxy',
@@ -49,7 +35,7 @@ var topics = [
       },
       {
         topicName : 'C#',
-        description : 'Maecenas vulputate sem',
+        description : 'Maecenas vulputate sem ut',
         link : "",
         effect:'effect-bubba',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/9.jpg",
@@ -58,25 +44,28 @@ var topics = [
         topicName : 'JAVA',
         description : 'Pellentesque egestas magna fringillagna varius',
         link : "",
-        effect:'effect-sarah',
+        effect:'effect-romeo',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/12.jpg",
       }
     ];
 
-Topic.find({}, function(err, data){
-  if(err) console.log(err);
-  else{
-	  if(data.length === 0) {
-		console.log("start to initialize the topics");
+function init(){
+  Topic.find({}, function(err, data){
+    if(err) console.log(err);
+    else{
+      if(data.length === 0) {
+      console.log("start to initialize the topic table");
 
-	    topics.map((topic) => {
-	      let t = new Topic(topic);
-	      t.save(function(err, response){
-	      	if(err) console.log(err);
-	      	console.log("insert successfully", response._id);
-	      });
-	    });
-	  }
-	}
-});
+        topics.map((topic) => {
+          let t = new Topic(topic);
+          t.save(function(err, response){
+            if(err) console.log(err);
+            console.log("insert successfully", response._id);
+          });
+        });
+      }
+    }
+  });
+};
 
+module.exports = init;

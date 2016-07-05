@@ -18,24 +18,23 @@ exports.getAll = (req,res,next) =>{
 }
 
 //search specific article with id
-// exports.getById = (req,res,next)=>{
-//   const id = req.params.id;
-//   //search article with id
-//   ArticleModel.findById(new ObjectId(id),(err,doc)=>{
-//     if(err){
-//       res.send('err',err);
-//     }else{
-//       res.send({articles: doc});
-//     }
-//   });
-// }
+exports.getArticleById = (req,res,next)=>{
+  const id = req.params.id;
+  //search article with id
+  ArticleModel.findById(new ObjectId(id),(err,doc)=>{
+    if(err){
+      res.send('err',err);
+    }else{
+      res.send({articles: doc});
+    }
+  });
+}
 
 //search specific articles with author id
 exports.getByAuthorId = (req,res,next)=>{
   const authorId = req.params.id;
-  console.log('enter getByAuthorId',authorId);
   //search article with id
-  ArticleModel.find({author: new ObjectId(authorId)},(err,doc)=>{
+  ArticleModel.find({authorId: new ObjectId(authorId)},(err,doc)=>{
     if(err){
       res.send('err',err);
     }else{
@@ -47,24 +46,46 @@ exports.getByAuthorId = (req,res,next)=>{
 //search specific articles with author id
 exports.getByTopic = (req,res,next)=>{
   const name = req.params.name;
-  console.log('enter getByTopic',name);
   //search article with id
-  ArticleModel.find({topic: name},(err,doc)=>{
+  ArticleModel.find({topic: name}, 'title author publishDate topic _id',  (err,doc)=>{
     if(err){
-      res.send('err',err);
+      res.send('get article by id error',err);
     }else{
+      console.log('doc: ', doc);
       res.send({articles: doc});
     }
   });
 }
 
-exports.postArticle = (req, res) => {
+//search specific articles with author id
+exports.changeComment = (req,res,next) => {
+  const articleId = req.params.articleId;
+  const commentId = req.params.commentId;
 
+
+  ArticleModel.findOneAndUpdate(
+    {'_id': new ObjectId(articleId)},
+    {$set:{commentId: commentId}},
+    (doc,err)=>{
+      if(err){
+        res.send('Modify Comment error', err);
+      } else{
+        res.send({article: doc});
+      }
+    });
+}
+
+
+
+exports.postArticle = (req, res) => {
+  console.log(req.body);
   const article = new ArticleModel(req.body);
 
   article.save(function(err, data){
       if(err) console.log(err);
-      else res.jsonp(data);
+      else {
+        res.jsonp(data);
+        console.log("new post is added", data);
+      }
   });
-  console.log("new post is added");
 }
