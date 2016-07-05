@@ -7,6 +7,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 
 //search all topics
 exports.getAllTopics = (req,res,next) =>{
+  console.log('enter getAllTopics');
   Topic.find({},(err,data)=>{
     if(err){
       res.jsonp(err);
@@ -49,7 +50,7 @@ var topics = [
       },
       {
         topicName : 'C#',
-        description : 'Maecenas vulputate sem ut',
+        description : 'Maecenas vulputate sem',
         link : "",
         effect:'effect-bubba',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/9.jpg",
