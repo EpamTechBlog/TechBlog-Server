@@ -33,9 +33,8 @@ exports.getArticleById = (req,res,next)=>{
 //search specific articles with author id
 exports.getByAuthorId = (req,res,next)=>{
   const authorId = req.params.id;
-  console.log('enter getByAuthorId',authorId);
   //search article with id
-  ArticleModel.find({author: new ObjectId(authorId)},(err,doc)=>{
+  ArticleModel.find({authorId: new ObjectId(authorId)},(err,doc)=>{
     if(err){
       res.send('err',err);
     }else{
@@ -46,9 +45,7 @@ exports.getByAuthorId = (req,res,next)=>{
 
 //search specific articles with author id
 exports.getByTopic = (req,res,next)=>{
-  console.log('in get topic');
   const name = req.params.name;
-  console.log('enter getByTopic',name);
   //search article with id
   ArticleModel.find({topic: name}, 'title author publishDate topic _id',  (err,doc)=>{
     if(err){
@@ -64,8 +61,7 @@ exports.getByTopic = (req,res,next)=>{
 exports.changeComment = (req,res,next) => {
   const articleId = req.params.articleId;
   const commentId = req.params.commentId;
-  console.log('articleId',articleId);
-  console.log('commentId',commentId);
+
 
   ArticleModel.findOneAndUpdate(
     {'_id': new ObjectId(articleId)},

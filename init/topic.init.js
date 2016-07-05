@@ -6,7 +6,7 @@ const Topic = mongoose.model('Topic');
 
 var topics = [
       {
-        topicName : 'JS',
+        topicName : 'JAVASCRIPT',
         description : 'When Layla appears',
         link : "",
         effect:'effect-roxy',
