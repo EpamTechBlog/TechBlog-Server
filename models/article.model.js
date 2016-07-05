@@ -13,10 +13,14 @@ var ArticleSchema = new Schema({
     required: 'Title of article cannot be blank',
     trim: true,
   },
-  author: {
+  authorId: {
+    type: String,
+    default: '',
+    ref: 'user'
+  },
+  authorName: {
     type: String,
     default: ''
-
   },
   topic: {
     type: String,
