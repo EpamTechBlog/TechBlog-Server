@@ -12,7 +12,6 @@ router.post('/', articleController.postArticle);
 
 router.put('/comment/:articleId/:commentId', articleController.changeComment);
 
-
 module.exports = router;
 
 
