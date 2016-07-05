@@ -46,13 +46,15 @@ exports.getByAuthorId = (req,res,next)=>{
 
 //search specific articles with author id
 exports.getByTopic = (req,res,next)=>{
+  console.log('in get topic');
   const name = req.params.name;
   console.log('enter getByTopic',name);
   //search article with id
-  ArticleModel.find({topic: name}, 'title author publishDate',  (err,doc)=>{
+  ArticleModel.find({topic: name}, 'title author publishDate topic _id',  (err,doc)=>{
     if(err){
       res.send('get article by id error',err);
     }else{
+      console.log('doc: ', doc);
       res.send({articles: doc});
     }
   });
@@ -80,7 +82,7 @@ exports.changeComment = (req,res,next)=>{
 
 
 exports.postArticle = (req, res) => {
-
+  console.log(req.body);
   const article = new ArticleModel(req.body);
 
   article.save(function(err, data){
