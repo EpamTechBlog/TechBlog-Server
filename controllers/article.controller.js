@@ -88,7 +88,6 @@ exports.postArticle = (req, res) => {
       else {
         res.jsonp(data);
         console.log("new post is added", data);
-
       }
   });
 }

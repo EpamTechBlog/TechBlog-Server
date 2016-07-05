@@ -36,5 +36,8 @@ app.use('/articles', articles);
 app.use('/topics', topics);
 app.use('/comments',comments);
 
+//init dummy data
+var initor = require('../init/initDummyData.js');
+
 
 module.exports = app;
