@@ -59,20 +59,20 @@ exports.getByTopic = (req,res,next)=>{
 }
 
 //search specific articles with author id
-exports.changeComment = (req,res,next)=>{
+exports.changeComment = (req,res,next) => {
   const articleId = req.params.articleId;
   const commentId = req.params.commentId;
   console.log('articleId',articleId);
   console.log('commentId',commentId);
 
   ArticleModel.findOneAndUpdate(
-    {id: new ObjectId(articleId)},
+    {'_id': new ObjectId(articleId)},
     {$set:{commentId: commentId}},
     (doc,err)=>{
       if(err){
         res.send('Modify Comment error', err);
       } else{
-        res.send('Success')
+        res.send({article: doc});
       }
     });
 }
