@@ -49,7 +49,7 @@ exports.getByTopic = (req,res,next)=>{
   const name = req.params.name;
   console.log('enter getByTopic',name);
   //search article with id
-  ArticleModel.find({topic: name},(err,doc)=>{
+  ArticleModel.find({topic: name}, 'title author publishDate',  (err,doc)=>{
     if(err){
       res.send('get article by id error',err);
     }else{
