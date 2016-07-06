@@ -47,7 +47,7 @@ exports.getByAuthorId = (req,res,next)=>{
 exports.getByTopic = (req,res,next)=>{
   const name = req.params.name;
   //search article with id
-  ArticleModel.find({topic: name}, 'title author publishDate topic _id',  (err,doc)=>{
+  ArticleModel.find({topic: name}, 'title authorName authorId publishDate topic _id',  (err,doc)=>{
     if(err){
       res.send('get article by id error',err);
     }else{
