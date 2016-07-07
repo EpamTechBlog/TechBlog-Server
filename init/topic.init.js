@@ -10,12 +10,14 @@ var topics = [
         description : 'When Layla appears',
         link : "",
         effect:'effect-roxy',
+        icon: "loyalty",
         img : "http://download.4-designer.com/files/20130906/Creative-business-meetings-HD-pictures-48709.jpg",
       },
       {
         topicName : 'PHP',
         description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         link : "",
+        icon: "queue_play_next",
         effect:'effect-marley',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/17.jpg",
       },
@@ -23,6 +25,7 @@ var topics = [
         topicName : 'C++',
         description : 'Sed vehicula, augue sit amet tincidunt molestie, metus augue risus',
         link : "",
+        icon: "donut_small",
         effect:'effect-sadie',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/25.jpg",
       },
@@ -30,6 +33,7 @@ var topics = [
         topicName : 'IOS',
         description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
         link : "",
+        icon: "laptop_mac",
         effect:'effect-sarah',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/3.jpg",
       },
@@ -38,6 +42,7 @@ var topics = [
         description : 'Maecenas vulputate sem ut',
         link : "",
         effect:'effect-bubba',
+        icon: "closed_caption",
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/9.jpg",
       },
       {
@@ -46,6 +51,7 @@ var topics = [
         link : "",
         effect:'effect-romeo',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/12.jpg",
+        icon: "local_cafe"
       }
     ];
 
