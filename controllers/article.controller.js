@@ -25,7 +25,7 @@ exports.getArticleById = (req,res,next)=>{
     if(err){
       res.send('err',err);
     }else{
-      res.send({articles: doc});
+      res.jsonp(doc);
     }
   });
 }
