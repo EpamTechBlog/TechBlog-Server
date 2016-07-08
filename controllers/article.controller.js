@@ -1,8 +1,9 @@
 'use strict';
 require('../models/article.model.js');
-
+const mailer = require('../config/nodemailer.config');
 const mongoose = require('../config/mongoose.config');
 const ArticleModel = mongoose.model('Article');
+const User = mongoose.model('User');
 const ObjectId = require('mongoose').Types.ObjectId;
 
 
@@ -51,7 +52,7 @@ exports.getByTopic = (req,res,next)=>{
     if(err){
       res.send('get article by id error',err);
     }else{
-      console.log('doc: ', doc);
+
       res.send({articles: doc});
     }
   });
@@ -78,14 +79,38 @@ exports.changeComment = (req,res,next) => {
 
 
 exports.postArticle = (req, res) => {
-  console.log(req.body);
+
   const article = new ArticleModel(req.body);
 
   article.save(function(err, data){
       if(err) console.log(err);
       else {
+        //send email
+        User.findOne({_id : article.authorId}, function(err, user){
+          if(err) console.log(err);
+          else{
+                if(user.email && user.subscribed){
+                  try{
+                    mailer.setUp('techBlog@support.com', user.email, 'New Blog : ' +　article.title, CreateEmailBody(article));
+                    mailer.sendMail();
+                  }catch(err){
+                    console.log(err);
+                  }
+                }
+              }
+        });
         res.jsonp(data);
-        console.log("new post is added", data);
+        console.log("new post is added");
       }
   });
+}
+
+//email
+function CreateEmailBody(article){
+  let article_address = "http://localhost:8080/#/articles/" + article._id;
+  return `<p>Dear ${article.authorName},</p>
+          <p>${article.content}</p>
+          <p>You can review your article through <a href=${article_address}>here</a></p>
+          <p>Best Regards <br>
+          TechBlog System</p>`
 }
