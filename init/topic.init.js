@@ -9,6 +9,7 @@ var topics = [
         topicName : 'JAVASCRIPT',
         description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         link : "",
+        icon: "loyalty",
         effect:'effect-marley',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/17.jpg",
       },
@@ -23,6 +24,7 @@ var topics = [
         topicName : 'C++',
         description : 'Sed vehicula, augue sit amet tincidunt molestie, metus augue risus',
         link : "",
+        icon: "donut_small",
         effect:'effect-sadie',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/25.jpg",
       },
@@ -31,6 +33,7 @@ var topics = [
         description : 'Pellentesque egestas magna fringillagna varius',
         link : "",
         effect:'effect-romeo',
+        icon: "local_cafe",
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/12.jpg",
       },
       {
@@ -39,12 +42,15 @@ var topics = [
         link : "",
         effect:'effect-duke',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/27.jpg",
+        icon: "laptop_mac",
+       
       },
       {
         topicName : 'PHP',
         description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
         link : "",
         effect:'effect-lexi',
+        icon: "queue_play_next",
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/7.jpg",
       },
       {
@@ -58,10 +64,12 @@ var topics = [
         topicName : 'C',
         description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
         link : "",
+        icon: "closed_caption",
         effect:'effect-apollo',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/18.jpg",
       },
     ];
+
 
      // {
      //    topicName : 'C#',

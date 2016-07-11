@@ -9,9 +9,11 @@ router.get('/author/:id', articleController.getByAuthorId);
 router.get('/topic/:name', articleController.getByTopic);
 
 router.post('/', articleController.postArticle);
+router.delete('/:id', articleController.deleteArticleById);
+
+
 
 router.put('/comment/:articleId/:commentId', articleController.changeComment);
 
 module.exports = router;
-
 

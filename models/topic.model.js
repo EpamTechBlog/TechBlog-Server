@@ -29,6 +29,9 @@ var TopicSchema = new Schema({
   	type: String,
   	default:'effect-roxy',
 
+  },
+  icon:{
+    type: String
   }
 
 });
