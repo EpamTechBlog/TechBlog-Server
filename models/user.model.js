@@ -52,6 +52,10 @@ var UserSchema = new Schema({
   email : {
     type : String,
     optional:true
+  },
+  subscribed : {
+    type : Boolean,
+    default : true
   }
 
 });
