@@ -38,7 +38,7 @@ var topics = [
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/3.jpg",
       },
       {
-        topicName : 'C#',
+        topicName : 'OBJECTIVE C',
         description : 'Maecenas vulputate sem ut',
         link : "",
         effect:'effect-bubba',
