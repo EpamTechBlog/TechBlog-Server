@@ -31,6 +31,20 @@ exports.getArticleById = (req,res,next)=>{
   });
 }
 
+//delete specific article with id
+exports.deleteArticleById = (req, res, next)=>{
+  const id = req.params.id;
+  //search article with id
+  ArticleModel.findByIdAndRemove(id, (err, doc)=>{
+    if(err){
+      res.send('err',err);
+    }else{
+      console.log('successfully delete', doc);
+      res.jsonp(doc);
+    }
+  });
+}
+
 //search specific articles with author id
 exports.getByAuthorId = (req,res,next)=>{
   const authorId = req.params.id;
