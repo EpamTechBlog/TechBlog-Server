@@ -12,6 +12,6 @@ router.post('/', commentController.add);
 router.post('/reply', commentController.addReply);
 router.get('/:articleId', commentController.read);
 router.get('/getArticleIds/:userId', commentController.readByUserId);
-router.get('/articles/:userId', commentController.readArticlesByUserId);
+router.get('/articles/:username', commentController.readArticlesByUsername);
 
 module.exports = router;

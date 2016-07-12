@@ -135,9 +135,9 @@ exports.readByUserId = function (req, res, next){
 		});
 }
 
-exports.readArticlesByUserId = function (req, res, next){
-  var userId = req.params.userId;
-  console.log(userId);
+exports.readArticlesByUsername = function (req, res, next){
+  var username = req.params.username;
+  console.log(username);
   var articleCommentedByUser = [];
   var articles = [];
   Comment.find({}, function(err, comments){
@@ -147,13 +147,13 @@ exports.readArticlesByUserId = function (req, res, next){
     }else{
       for(let i = 0; i < comments.length; i++){
         for(let m = 0; m < comments[i].comments.length; m++){
-          if(comments[i].comments[m].creator === userId){
+          if(comments[i].comments[m].creator === username){
             articleCommentedByUser.push(comments[i].articleId);
             break;
           }
           let comments2comments = comments[i].comments[m].comments2comments;
           for(let j = 0; j < comments2comments.length; j++){
-            if(comments2comments[j].replyer === userId){
+            if(comments2comments[j].replyer === username){
               articleCommentedByUser.push(comments[i].articleId);
               break;
             }
@@ -168,7 +168,7 @@ exports.readArticlesByUserId = function (req, res, next){
             articles.push({
               id: article._id,
               title: article.title,
-              author: article.author,
+              authorName: article.authorName,
               topic: article.topic,
               publishDate: article.publishDate
             });
