@@ -54,8 +54,8 @@ var UserSchema = new Schema({
     optional:true
   },
   subscribed : {
-    type : Boolean,
-    default : true
+    type : String,
+    default : 'yes'
   }
 
 });

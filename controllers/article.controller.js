@@ -89,7 +89,7 @@ exports.postArticle = (req, res) => {
         User.findOne({_id : article.authorId}, function(err, user){
           if(err) console.log(err);
           else{
-                if(user.email && user.subscribed){
+                if(user.email && user.subscribed == 'yes'){
                   try{
                     mailer.setUp('techBlog@support.com', user.email, 'New Blog : ' +　article.title, CreateEmailBody(article));
                     mailer.sendMail();
