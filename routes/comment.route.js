@@ -13,5 +13,6 @@ router.post('/reply', commentController.addReply);
 router.get('/:articleId', commentController.read);
 router.get('/getArticleIds/:userId', commentController.readByUserId);
 router.get('/articles/:username', commentController.readArticlesByUsername);
+router.delete('/:articleId', commentController.deleteByArticleId);
 
 module.exports = router;

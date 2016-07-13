@@ -136,6 +136,7 @@ exports.readByUserId = function (req, res, next){
 }
 
 exports.readArticlesByUsername = function (req, res, next){
+  console.log('access api');
   var username = req.params.username;
   console.log(username);
   var articleCommentedByUser = [];
@@ -161,6 +162,9 @@ exports.readArticlesByUsername = function (req, res, next){
         }
       }
       // console.log(articleCommentedByUser);
+      if(articleCommentedByUser.length === 0){
+		res.jsonp(articleCommentedByUser);
+      }else{
       for(let n = 0; n < articleCommentedByUser.length; n++){
         console.log(articleCommentedByUser[n]);
         Article.findOne({ _id: new ObjectId(articleCommentedByUser[n]) },function(err, article){
@@ -175,12 +179,25 @@ exports.readArticlesByUsername = function (req, res, next){
           }
 /*          console.log(articles);
           console.log(articles.length);
-          console.log(articleCommentedByUser.length);*/
+          console.log(articleCommentedByUser.length);*/		
           if(articles.length === articleCommentedByUser.length){
             res.jsonp(articles);
           }
         });
       }
+     }
     }
   });
+}
+
+exports.deleteByArticleId = function(req, res){
+	var articleId = req.params.articleId;
+	Comment.findOneAndRemove({articleId: articleId}, function(err, doc){
+		if (err) {
+			res.send('err',err);
+		}else {
+			console.log('successfully delete comment:', doc);
+			res.jsonp(doc);
+		}
+	})
 }
