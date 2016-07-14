@@ -18,6 +18,7 @@ var topics = [
         description : 'Proin mauris ante, scelerisque consectetur',
         link : "",
         effect:'effect-jazz',
+        icon: "queue_play_next",
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/25.jpg",
       },
       {
@@ -47,7 +48,7 @@ var topics = [
       },
       {
         topicName : 'PHP',
-        description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
+        description : 'Maecenas vulputate sem ut',
         link : "",
         effect:'effect-lexi',
         icon: "queue_play_next",
@@ -58,10 +59,11 @@ var topics = [
         description : 'Proin mauris ante, consectetur',
         link : "",
         effect:'effect-ming',
+        icon: "donut_small",
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/9.jpg",
       },
       {
-        topicName : 'C',
+        topicName : 'OBJ-C',
         description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
         link : "",
         icon: "closed_caption",

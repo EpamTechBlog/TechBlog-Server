@@ -56,7 +56,7 @@ exports.addReply = function(req, res){
 	var atter = req.body.atter;
 	var replyer = req.body.replyer;
 	var content = req.body.content;
-	console.log(req.body.content);
+
 	Comment.findOne({articleId:articleId}, function(err, comment){
 		console.log(comment);
 		if(comment != undefined){
@@ -85,7 +85,7 @@ exports.addReply = function(req, res){
 }
 
 exports.read = function(req, res){
-	console.log(req.params.articleId);
+
 	var articleId = req.params.articleId;
 	var comment = Comment.findOne({articleId:articleId}, function(err, comment){
 
@@ -101,7 +101,7 @@ exports.read = function(req, res){
 
 exports.readByUserId = function (req, res, next){
 	var userId = req.params.userId;
-	// console.log(userId);
+
 	var articleCommentedByUser = [];
 	Comment.find({}, function(err, comments){
 		// console.log(comments);
@@ -137,7 +137,7 @@ exports.readByUserId = function (req, res, next){
 
 exports.readArticlesByUserId = function (req, res, next){
   var userId = req.params.userId;
-  // console.log(userId);
+  console.log(userId);
   var articleCommentedByUser = [];
   var articles = [];
   Comment.find({}, function(err, comments){
@@ -184,35 +184,3 @@ exports.readArticlesByUserId = function (req, res, next){
     }
   });
 }
-
-
-
-/*
-var CommentSchema = new Schema({
-	articleId: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Article'
-	},
-	comments: [{
-		creator: {
-			type: mongoose.Schema.Types.ObjectId,
-			ref: 'User'
-		},
-		content: String,
-		time: Date,
-		comments2comments:[{
-			replyer:{
-				type: mongoose.Schema.Types.ObjectId,
-				ref: 'User'
-			}
-			time: Date,
-			content: String,
-			atter:{
-				type: mongoose.Schema.Types.ObjectId,
-				ref: 'User'
-			}
-		}],
-	}],
-});
-
-*/
