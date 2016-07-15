@@ -15,6 +15,7 @@ var topics = [
       },
       {
         topicName : 'RUBY',
+        icon: "closed_caption",
         description : 'Proin mauris ante, scelerisque consectetur',
         link : "",
         effect:'effect-jazz',
@@ -63,7 +64,7 @@ var topics = [
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/9.jpg",
       },
       {
-        topicName : 'OBJ-C',
+        topicName : 'OBJC',
         description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
         link : "",
         icon: "closed_caption",
