@@ -10,26 +10,19 @@ var CommentSchema = new Schema({
 		ref: 'Article'
 	},
 	comments: [{
+
 		creator: {
 			// type: mongoose.Schema.Types.ObjectId,
-			type: String,
-			ref: 'User'
+			type: String
 		},
 		content: String,
 		time: Date,
 		comments2comments:[{
 			replyer:{
-				// type: mongoose.Schema.Types.ObjectId,
-				type: String,
-				ref: 'User'
+				type: String
 			},
 			time: Date,
-			content: String,
-			atter:{
-				// type: mongoose.Schema.Types.ObjectId,
-				type: String,
-				ref: 'User'
-			}
+			content: String
 		}],
 	}],
 });

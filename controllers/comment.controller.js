@@ -51,24 +51,26 @@ exports.add = function(req, res){
 }
 
 exports.addReply = function(req, res){
-	var creator = req.body.creator;
-	var articleId = req.body.articleId;
-	var atter = req.body.atter;
+
+	var articleId = req.params.articleId;
+  var commentId = req.params.commentId;
 	var replyer = req.body.replyer;
 	var content = req.body.content;
 
 	Comment.findOne({articleId:articleId}, function(err, comment){
-		console.log(comment);
+
 		if(comment != undefined){
 			var comments = comment.comments;
 			for(var i = 0; i < comments.length; i++){
-				if(comments[i].creator === creator){
+
+				if(comments[i]._id == commentId){
+
 					comment.comments[i].comments2comments.push({
 						replyer: replyer,
 						content: content,
-						atter: atter,
 						time: new Date()
 					});
+          break;
 				}
 			}
 			comment.save(function(err){
