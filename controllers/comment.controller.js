@@ -137,9 +137,10 @@ exports.readByUserId = function (req, res, next){
 		});
 }
 
-exports.readArticlesByUserId = function (req, res, next){
-  var userId = req.params.userId;
-  console.log(userId);
+exports.readArticlesByUsername = function (req, res, next){
+  console.log('access api');
+  var username = req.params.username;
+  console.log(username);
   var articleCommentedByUser = [];
   var articles = [];
   Comment.find({}, function(err, comments){
@@ -149,13 +150,13 @@ exports.readArticlesByUserId = function (req, res, next){
     }else{
       for(let i = 0; i < comments.length; i++){
         for(let m = 0; m < comments[i].comments.length; m++){
-          if(comments[i].comments[m].creator === userId){
+          if(comments[i].comments[m].creator === username){
             articleCommentedByUser.push(comments[i].articleId);
             break;
           }
           let comments2comments = comments[i].comments[m].comments2comments;
           for(let j = 0; j < comments2comments.length; j++){
-            if(comments2comments[j].replyer === userId){
+            if(comments2comments[j].replyer === username){
               articleCommentedByUser.push(comments[i].articleId);
               break;
             }
@@ -163,6 +164,9 @@ exports.readArticlesByUserId = function (req, res, next){
         }
       }
       // console.log(articleCommentedByUser);
+      if(articleCommentedByUser.length === 0){
+		res.jsonp(articleCommentedByUser);
+      }else{
       for(let n = 0; n < articleCommentedByUser.length; n++){
         console.log(articleCommentedByUser[n]);
         Article.findOne({ _id: new ObjectId(articleCommentedByUser[n]) },function(err, article){
@@ -170,19 +174,32 @@ exports.readArticlesByUserId = function (req, res, next){
             articles.push({
               id: article._id,
               title: article.title,
-              author: article.author,
+              authorName: article.authorName,
               topic: article.topic,
               publishDate: article.publishDate
             });
           }
 /*          console.log(articles);
           console.log(articles.length);
-          console.log(articleCommentedByUser.length);*/
+          console.log(articleCommentedByUser.length);*/		
           if(articles.length === articleCommentedByUser.length){
             res.jsonp(articles);
           }
         });
       }
+     }
     }
   });
+}
+
+exports.deleteByArticleId = function(req, res){
+	var articleId = req.params.articleId;
+	Comment.findOneAndRemove({articleId: articleId}, function(err, doc){
+		if (err) {
+			res.send('err',err);
+		}else {
+			console.log('successfully delete comment:', doc);
+			res.jsonp(doc);
+		}
+	})
 }

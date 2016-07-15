@@ -4,22 +4,22 @@ require('../models/topic.model.js');
 const mongoose = require('../config/mongoose.config');
 const Topic = mongoose.model('Topic');
 
-var topics = [
+var topics = [ 
       {
         topicName : 'JAVASCRIPT',
-        description : 'When Layla appears',
-        link : "",
-        effect:'effect-roxy',
-        icon: "loyalty",
-        img : "http://download.4-designer.com/files/20130906/Creative-business-meetings-HD-pictures-48709.jpg",
-      },
-      {
-        topicName : 'PHP',
         description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         link : "",
-        icon: "queue_play_next",
+        icon: "loyalty",
         effect:'effect-marley',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/17.jpg",
+      },
+      {
+        topicName : 'RUBY',
+        icon: "closed_caption",
+        description : 'Proin mauris ante, scelerisque consectetur',
+        link : "",
+        effect:'effect-jazz',
+        img : "http://tympanus.net/Development/HoverEffectIdeas/img/25.jpg",
       },
       {
         topicName : 'C++',
@@ -30,30 +30,56 @@ var topics = [
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/25.jpg",
       },
       {
-        topicName : 'IOS',
-        description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
-        link : "",
-        icon: "laptop_mac",
-        effect:'effect-sarah',
-        img : "http://tympanus.net/Development/HoverEffectIdeas/img/3.jpg",
-      },
-      {
-        topicName : 'OBJECTIVE C',
-        description : 'Maecenas vulputate sem ut',
-        link : "",
-        effect:'effect-bubba',
-        icon: "closed_caption",
-        img : "http://tympanus.net/Development/HoverEffectIdeas/img/9.jpg",
-      },
-      {
         topicName : 'JAVA',
         description : 'Pellentesque egestas magna fringillagna varius',
         link : "",
         effect:'effect-romeo',
+        icon: "local_cafe",
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/12.jpg",
-        icon: "local_cafe"
-      }
+      },
+      {
+        topicName : 'IOS',
+        description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
+        link : "",
+        effect:'effect-duke',
+        img : "http://tympanus.net/Development/HoverEffectIdeas/img/27.jpg",
+        icon: "laptop_mac",
+       
+      },
+      {
+        topicName : 'PHP',
+        description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
+        link : "",
+        effect:'effect-lexi',
+        icon: "queue_play_next",
+        img : "http://tympanus.net/Development/HoverEffectIdeas/img/7.jpg",
+      },
+      {
+        topicName : 'PYTHON',
+        description : 'Proin mauris ante, consectetur',
+        link : "",
+        effect:'effect-ming',
+        icon: "donut_small",
+        img : "http://tympanus.net/Development/HoverEffectIdeas/img/9.jpg",
+      },
+      {
+        topicName : 'OBJC',
+        description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
+        link : "",
+        icon: "closed_caption",
+        effect:'effect-apollo',
+        img : "http://tympanus.net/Development/HoverEffectIdeas/img/18.jpg",
+      },
     ];
+
+
+     // {
+     //    topicName : 'C#',
+     //    description : 'Maecenas vulputate sem ut',
+     //    link : "",
+     //    effect:'effect-bubba',
+     //    img : "http://tympanus.net/Development/HoverEffectIdeas/img/19.jpg",
+     //  },
 
 function init(){
   Topic.find({}, function(err, data){
