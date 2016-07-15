@@ -63,7 +63,7 @@ var topics = [
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/9.jpg",
       },
       {
-        topicName : 'C',
+        topicName : 'OBJC',
         description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
         link : "",
         icon: "closed_caption",
