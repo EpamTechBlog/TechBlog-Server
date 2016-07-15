@@ -9,7 +9,7 @@ require('../models/comment.model');
 
 
 router.post('/', commentController.add);
-router.post('/reply', commentController.addReply);
+router.post('/:articleId/reply/:commentId', commentController.addReply);
 router.get('/:articleId', commentController.read);
 router.get('/getArticleIds/:userId', commentController.readByUserId);
 router.get('/articles/:userId', commentController.readArticlesByUserId);
