@@ -49,7 +49,7 @@ var topics = [
       },
       {
         topicName : 'PHP',
-        description : 'Maecenas vulputate sem ut',
+        description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
         link : "",
         effect:'effect-lexi',
         icon: "queue_play_next",
