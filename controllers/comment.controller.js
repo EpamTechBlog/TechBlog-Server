@@ -181,7 +181,7 @@ exports.readArticlesByUsername = function (req, res, next){
           }
 /*          console.log(articles);
           console.log(articles.length);
-          console.log(articleCommentedByUser.length);*/		
+          console.log(articleCommentedByUser.length);*/
           if(articles.length === articleCommentedByUser.length){
             res.jsonp(articles);
           }
