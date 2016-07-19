@@ -13,7 +13,8 @@ var CommentSchema = new Schema({
 
 		creator: {
 			// type: mongoose.Schema.Types.ObjectId,
-			type: String
+			type: String,
+			ref: 'User'
 		},
 		content: String,
 		time: Date,

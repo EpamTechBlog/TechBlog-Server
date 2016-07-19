@@ -1,4 +1,4 @@
-var express = require('express');
+  var express = require('express');
 var router = express.Router();
 var passport = require('../config/passport.config');
 var mongoose = require('../config/mongoose.config');
@@ -22,10 +22,14 @@ exports.login =  function(req, res) {
 
 exports.getInfo = function(req, res){
   var id = req.params.id;
-  User.findOne({_id : id}, function(err, data){
-    if(err) console.log(err);
-    else res.jsonp(data);
-  });
+
+  if(id){
+
+    User.findOne({_id : id}, function(err, data){
+      if(err) res.jsonp(err);
+      else res.jsonp(data);
+    });
+  }
 }
 
 exports.updateInfo = function(req, res){
