@@ -4,10 +4,10 @@ require('../models/topic.model.js');
 const mongoose = require('../config/mongoose.config');
 const Topic = mongoose.model('Topic');
 
-var topics = [ 
+var topics = [
       {
         topicName : 'JAVASCRIPT',
-        description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        description : 'High-level, dynamic, untyped, and interpreted programming language',
         link : "",
         icon: "loyalty",
         effect:'effect-marley',
@@ -16,14 +16,14 @@ var topics = [
       {
         topicName : 'RUBY',
         icon: "closed_caption",
-        description : 'Proin mauris ante, scelerisque consectetur',
+        description : 'Dynamic, reflective, object-oriented, general-purpose programming language',
         link : "",
         effect:'effect-jazz',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/25.jpg",
       },
       {
         topicName : 'C++',
-        description : 'Sed vehicula, augue sit amet tincidunt molestie, metus augue risus',
+        description : ' Middle-level programming language developed by Bjarne Stroustrup starting in 1979 at Bell Labs',
         link : "",
         icon: "donut_small",
         effect:'effect-sadie',
@@ -31,40 +31,23 @@ var topics = [
       },
       {
         topicName : 'JAVA',
-        description : 'Pellentesque egestas magna fringillagna varius',
+        description : ' A general-purpose computer programming language that is concurrent, class-based, object-oriented',
         link : "",
         effect:'effect-romeo',
         icon: "local_cafe",
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/12.jpg",
       },
       {
-        topicName : 'IOS',
-        description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
-        link : "",
-        effect:'effect-duke',
-        img : "http://tympanus.net/Development/HoverEffectIdeas/img/27.jpg",
-        icon: "laptop_mac",
-       
-      },
-      {
-        topicName : 'PHP',
-        description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
-        link : "",
-        effect:'effect-lexi',
-        icon: "queue_play_next",
-        img : "http://tympanus.net/Development/HoverEffectIdeas/img/7.jpg",
-      },
-      {
         topicName : 'PYTHON',
-        description : 'Proin mauris ante, consectetur',
+        description : 'A widely used high-level, general-purpose, interpreted, dynamic programming language',
         link : "",
         effect:'effect-ming',
         icon: "donut_small",
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/9.jpg",
       },
       {
-        topicName : 'OBJC',
-        description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
+        topicName : 'OBJCTIVE C',
+        description : 'A general-purpose, object-oriented programming language',
         link : "",
         icon: "closed_caption",
         effect:'effect-apollo',
