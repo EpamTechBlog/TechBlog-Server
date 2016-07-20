@@ -7,7 +7,7 @@ const Topic = mongoose.model('Topic');
 var topics = [ 
       {
         topicName : 'JAVASCRIPT',
-        description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        description : 'High-level, dynamic, untyped, and interpreted programming language',
         link : "",
         icon: "loyalty",
         effect:'effect-marley',
@@ -16,23 +16,22 @@ var topics = [
       {
         topicName : 'RUBY',
         icon: "closed_caption",
-        description : 'Proin mauris ante, scelerisque consectetur',
+        description : 'Dynamic, reflective, object-oriented, general-purpose programming language',
         link : "",
         effect:'effect-jazz',
-        icon: "queue_play_next",
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/25.jpg",
       },
       {
         topicName : 'C++',
-        description : 'Sed vehicula, augue sit amet tincidunt molestie, metus augue risus',
+        description : 'Middle-level programming language developed by Bjarne Stroustrup starting in 1979 at Bell Labs',
         link : "",
         icon: "donut_small",
         effect:'effect-sadie',
-        img : "http://tympanus.net/Development/HoverEffectIdeas/img/25.jpg",
+        img : "http://tympanus.net/Development/HoverEffectIdeas/img/19.jpg",
       },
       {
         topicName : 'JAVA',
-        description : 'Pellentesque egestas magna fringillagna varius',
+        description : 'A language that is concurrent, class-based, object-oriented',
         link : "",
         effect:'effect-romeo',
         icon: "local_cafe",
@@ -40,7 +39,7 @@ var topics = [
       },
       {
         topicName : 'IOS',
-        description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
+        description : 'A more formal introduction to programming and iOS development',
         link : "",
         effect:'effect-duke',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/27.jpg",
@@ -49,7 +48,7 @@ var topics = [
       },
       {
         topicName : 'PHP',
-        description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
+        description : 'A server-side scripting language designed for web development',
         link : "",
         effect:'effect-lexi',
         icon: "queue_play_next",
@@ -57,30 +56,33 @@ var topics = [
       },
       {
         topicName : 'PYTHON',
-        description : 'Proin mauris ante, consectetur',
+        description : 'A high-level, general-purpose, interpreted, dynamic language',
         link : "",
         effect:'effect-ming',
         icon: "donut_small",
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/9.jpg",
       },
       {
-        topicName : 'OBJC',
-        description : 'Proin mauris ante, scelerisque ut sollicitudin consectetur',
+        topicName : 'OBJ-C',
+        description : 'A general-purpose, object-oriented programming language',
         link : "",
         icon: "closed_caption",
         effect:'effect-apollo',
         img : "http://tympanus.net/Development/HoverEffectIdeas/img/18.jpg",
       },
+      {
+        topicName : 'C#',
+        description : 'A language designed for the Common Language Infrastructure',
+        link : "",
+        icon: "queue_play_next",
+        effect:'effect-bubba',
+        img : "http://tympanus.net/Development/HoverEffectIdeas/img/14.jpg",
+      },
     ];
 
 
-     // {
-     //    topicName : 'C#',
-     //    description : 'Maecenas vulputate sem ut',
-     //    link : "",
-     //    effect:'effect-bubba',
-     //    img : "http://tympanus.net/Development/HoverEffectIdeas/img/19.jpg",
-     //  },
+
+     
 
 function init(){
   Topic.find({}, function(err, data){
