@@ -14,7 +14,7 @@ var UserSchema = new Schema({
   },
   password: {
     type: String,
-    required: 'Please fill in a password'
+    required: 'Please fill in a password',
   },
   salt: {
     type: String
@@ -67,7 +67,7 @@ UserSchema.pre('save', function(next) {
     this.password = this.hashPassword(this.password);
   }
 
-  next();
+  next()
 });
 // Create an instance method for hashing a password
 UserSchema.methods.hashPassword = function(password) {
@@ -79,5 +79,5 @@ UserSchema.methods.validPassword = function(password) {
   return this.password === this.hashPassword(password);
 };
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema)
 

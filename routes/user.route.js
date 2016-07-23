@@ -17,4 +17,4 @@ router.get('/:id', userController.getInfo);
 
 router.put('/:id', userController.updateInfo);
 
-module.exports = router;
+module.exports = router
